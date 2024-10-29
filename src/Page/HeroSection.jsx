@@ -1,5 +1,4 @@
 import carImage from '../assets/image/carImage.webp';
-import '../style/HeroSection.css';
 
 export default function HeroSection() {
   return (
