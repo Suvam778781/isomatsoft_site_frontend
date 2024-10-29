@@ -1,0 +1,31 @@
+/* Crousel.css */
+.slick-prev,
+.slick-next {
+  width: 40px; /* Adjust width as necessary */
+  height: 40px; /* Adjust height as necessary */
+  z-index: 10; /* Ensure arrows are on top */
+}
+
+.slick-prev {
+  left: 0px; /* Decreased distance from the left */
+}
+
+.slick-next {
+  right: 0px; /* Decreased distance from the right */
+}
+
+/* Remove margin or any additional space around arrows */
+.slick-prev:before,
+.slick-next:before {
+  font-size: 50px; /* Adjust icon size as necessary */
+  color: white; /* Arrow color */
+  line-height: 40px; /* Center vertically */
+}
+
+/* Media query for small screens */
+@media (max-width: 639px) { /* Adjust this breakpoint as needed */
+  .slick-prev,
+  .slick-next {
+    margin-top: -50px; /* Bring arrows 50px above for small screens */
+  }
+}

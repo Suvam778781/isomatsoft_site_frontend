@@ -1,0 +1,16 @@
+
+
+body{
+ background-color: transparent;
+background-image: radial-gradient(at center center, #111746 56%, #3C1F5E 100%);
+}
+
+img,
+button {
+  outline: none; /* Remove outline for images and buttons */
+}
+
+img:focus,
+button:focus {
+  outline: none; /* Ensure no outline on focus */
+}
