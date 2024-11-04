@@ -9,6 +9,7 @@ const Footer = () => {
   const [loading, setLoading] = useState(true);
   // const toast = useToast();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  let companyLogo=localStorage.getItem("company-logo")
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -41,7 +42,7 @@ const Footer = () => {
       setLoading(false);
     }
   };
-
+   console.log(footerData,"footer-data")
   return (
     <footer className="flex max-h-[800px] flex-col justify-end text-white 400 mt-4">
       <div className="w-full">
@@ -49,7 +50,7 @@ const Footer = () => {
           <div className="my-20 flex w-full flex-col items-center">
             {/* Logo */}
             <div className="mb-10 shrink-0">
-              <img className="h-9" src={extendyLogo} alt="Logo" />
+              <img className="h-9" src={companyLogo} alt="Logo" />
             </div>
 
             {/* Navigation Links */}

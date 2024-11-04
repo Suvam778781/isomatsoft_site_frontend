@@ -7,7 +7,6 @@ import '../style/Border.css'
 import { fetchGetRequest } from '../api/api';
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -24,6 +23,8 @@ console.log(headerData)
       const response = await fetchGetRequest(`${import.meta.env.VITE_API_URL}/api/getData?section=header`);
       setHeaderData(response.data);
       setLoading(false);
+      localStorage.setItem("company-logo", response.data.logo);
+
     } catch (error) {
       // toast({
       //   title: "Error fetching Header Section data",
@@ -46,14 +47,14 @@ console.log(headerData)
         {/* Logo */}
         <div className="text-white text-2xl font-bold flex items-center">
           <img
-            src={extendyLogo}
+            src={headerData?.logo}
             alt="companylogo"
-            className="w-[150px] h-[20px] md:w-[200px] md:h-[26px]"
+            className="w-[150px] h-[24px] md:w-[200px] md:h-[50px]"
           />
         </div>
 
         {/* Menu for larger screens */}
-        <div className="hidden md:flex gap-4 items-center text-[16px]">
+        <div className="hidden md:flex gap-4 items-center text-[20px]">
           <a href="#" className="text-white">White Label</a>
           <a href="#" className="text-white">Clients</a>
         </div>
