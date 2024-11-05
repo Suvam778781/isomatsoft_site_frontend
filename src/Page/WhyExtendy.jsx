@@ -6,7 +6,7 @@ import { fetchGetRequest } from '../api/api';
 const WhyExtendy = () => {
   const [aboutData, setAboutData] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+ console.log(aboutData,"about-data")
  
   // const toast = useToast();
 

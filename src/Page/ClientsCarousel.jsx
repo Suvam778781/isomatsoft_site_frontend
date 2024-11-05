@@ -31,9 +31,10 @@ const ClientsCarousel = () => {
 
   const handleCardClick = (clientName) => {
     setSelectedClient(clientName);
-    const index = carouselDatas.findIndex((item) => item.name === clientName);
-    sliderRef.current.slickGoTo(index);
-    console.log(selectedClient,"dddd")
+    const index = carouselDatas.findIndex((item) => item.links.name === clientName);
+    if (index >= 0) {
+      sliderRef.current.slickGoTo(index);
+    }
   };
 
   const settings = {
@@ -43,7 +44,7 @@ const ClientsCarousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (current, next) => {
-      const client = carouselDatas[next]?.name;
+      const client = carouselDatas[next]?.links.name;
       if (client) setSelectedClient(client);
     },
     nextArrow: <div className="slick-next">→</div>,
