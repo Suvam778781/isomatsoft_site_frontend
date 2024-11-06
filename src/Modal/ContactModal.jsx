@@ -55,6 +55,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             className="w-full px-4 py-2 bg-transparent border-b border-[#FFFFFFB2] text-white focus:outline-none"
                             value={emailOrPhone}
                             onChange={(e) => setEmailOrPhone(e.target.value)}
+                            required="true"
                         />
                         <input
                             type="text"
@@ -62,6 +63,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             className="w-full px-4 py-2 bg-transparent border-b border-[#FFFFFFB2] text-white focus:outline-none"
                             value={budget}
                             onChange={(e) => setBudget(e.target.value)}
+                            required="true"
                         />
                         <input
                             type="text"
@@ -69,6 +71,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             className="w-full px-4 py-2 bg-transparent border-b border-[#FFFFFFB2] text-white focus:outline-none"
                             value={info}
                             onChange={(e) => setInfo(e.target.value)}
+                            required="true"
                         />
                         <input
                             type="text"
@@ -76,6 +79,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             className="w-full px-4 py-2 bg-transparent border-b border-[#FFFFFFB2] text-white focus:outline-none"
                             value={links}
                             onChange={(e) => setLinks(e.target.value)}
+                            required="true"
                         />
 
                         <button
