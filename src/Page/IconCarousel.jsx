@@ -15,9 +15,10 @@ const IconCarousel = () => {
     const fetchAboutData = async () => {
         try {
             const response = await fetchGetRequest(`${import.meta.env.VITE_API_URL}/api/getData?section=aboutus`);
-            const iconData = response?.data[0].providers.flat();  // Flatten to get single array of URLs
+            const iconData = response?.data[0].providers // Flatten to get single array of URLs
             setProviderIcon(iconData);
             setLoading(false);
+            console.log(iconData,'xxxxxxxxxxxxxxx-data')
         } catch (error) {
             console.error("Error fetching About Us data:", error);
             setLoading(false);
@@ -81,7 +82,9 @@ const IconCarousel = () => {
                             <img 
                                 src={logo} 
                                 alt={`logo-${index}`} 
-                                style={{ maxWidth: '80px', height: 'auto' }}  // Adjusted size for large screens
+                                style={{ maxWidth: '80px', height: 'auto',background: 'none'}} 
+                                 // Adjusted size for large screens
+                                 className=' border border-green-600'
                             />
                         </div>
                     ))}

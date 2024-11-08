@@ -27,7 +27,7 @@ function App() {
       <WhyExtendy/>
       </div>
      
-      <IconCarousel/>
+      {/* <IconCarousel/> */}
       {/* <Clients/> */}
       {/* <Carousel/> */}
      <ClientsCarousel/>

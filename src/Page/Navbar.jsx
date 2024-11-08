@@ -36,7 +36,7 @@ console.log(headerData)
       setLoading(false);
     }
   };
-  console.log(headerData,"nnnnnnnnnn")
+  console.log(headerData,"nav-bar-optin")
 
   return (
     <nav
@@ -54,10 +54,15 @@ console.log(headerData)
         </div>
 
         {/* Menu for larger screens */}
-        <div className="hidden md:flex gap-4 items-center text-[20px]">
-          <a href="#" className="text-white">White Label</a>
-          <a href="#" className="text-white">Clients</a>
-        </div>
+        <div className="hidden md:flex gap-4 items-center text-[16px]">
+      {headerData && (
+        headerData?.links.map((item) => (
+          <a key={item._id} href={item.link} className="text-white">
+            {item.name}
+          </a>
+        ))
+      ) }
+    </div>
 
         {/* Contact Button */}
         <div className="hidden md:flex items-center text-[16px]">
