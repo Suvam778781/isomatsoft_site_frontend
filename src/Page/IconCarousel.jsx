@@ -15,15 +15,16 @@ const IconCarousel = () => {
     const fetchAboutData = async () => {
         try {
             const response = await fetchGetRequest(`${import.meta.env.VITE_API_URL}/api/getData?section=aboutus`);
-            const iconData = response?.data[0].providers.flat();  // Flatten to get single array of URLs
+            const iconData = response?.data[0].providers // Flatten to get single array of URLs
             setProviderIcon(iconData);
             setLoading(false);
+        
         } catch (error) {
             console.error("Error fetching About Us data:", error);
             setLoading(false);
         }
     };
-
+   
     const settings = {
         dots: false,
         infinite: true,
@@ -39,14 +40,14 @@ const IconCarousel = () => {
             {
                 breakpoint: 1280, // Extra-large screens (desktops)
                 settings: {
-                    slidesToShow: 6,  // Show 6 icons
+                    slidesToShow: 8,  // Show 6 icons
                     slidesToScroll: 1,
                 }
             },
             {
                 breakpoint: 1024, // Medium screens (tablets)
                 settings: {
-                    slidesToShow: 5,  // Show 5 icons
+                    slidesToShow: 8,  // Show 5 icons
                     slidesToScroll: 1,
                 }
             },
@@ -68,26 +69,26 @@ const IconCarousel = () => {
     };
 
     return (
-        <div className='w-full overflow-hidden px-2 md:px-6 lg:px-10 py-8'>
-            {loading ? (
-                <p>Loading...</p>
-            ) : (
-                <Slider {...settings}>
-                    {providerIcon.map((logo, index) => (
-                        <div 
-                            key={index} 
-                            className="flex justify-center items-center px-1 py-2"  // Reduced padding to decrease gap
-                        >
-                            <img 
-                                src={logo} 
-                                alt={`logo-${index}`} 
-                                style={{ maxWidth: '80px', height: 'auto' }}  // Adjusted size for large screens
-                            />
-                        </div>
-                    ))}
-                </Slider>
-            )}
-        </div>
+        <div className="w-full overflow-hidden px-2 md:px-6 lg:px-10 py-8">
+        {loading ? (
+            <p>Loading...</p>
+        ) : (
+            <Slider {...settings}>
+                {providerIcon.map((logo, index) => (
+                    <div 
+                        key={index} 
+                        className="flex justify-center items-center  h-full"  // Ensure full height and center alignment
+                    >
+                        <img 
+                            src={logo} 
+                            alt={`logo-${index}`} 
+                            className="w-[80px] h-[40px] mx-auto"  // Center image with mx-auto
+                        />
+                    </div>
+                ))}
+            </Slider>
+        )}
+    </div>
     );
 };
 
