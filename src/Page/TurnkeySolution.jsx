@@ -1,11 +1,9 @@
-import { useEffect,useState } from "react";
-import axios from "axios";
-import turnkey from "../assets/image/turnkey.webp";
-import { fetchGetRequest } from "../api/api";
+import { useEffect, useState } from "react";
+import { fetchGetRequest } from "../api/api"; // Assuming this is your API utility
+
 const TurnkeySolution = () => {
-  const [turnKeyData, setTurnKeyData] = useState(null);
+  const [turnKeyData, setTurnKeyData] = useState([]); // Initialize as an array
   const [loading, setLoading] = useState(true);
-  // const toast = useToast();
 
   useEffect(() => {
     fetchHeaderData();
@@ -13,51 +11,52 @@ const TurnkeySolution = () => {
 
   const fetchHeaderData = async () => {
     try {
-      const response = await fetchGetRequest(`${import.meta.env.VITE_API_URL}/api/getData?section=hero_section`);
-      setTurnKeyData(response.data.sections[0]);
-
+      const response = await fetchGetRequest(
+        `${import.meta.env.VITE_API_URL}/api/getData?section=hero_section`
+      );
+      setTurnKeyData(response.data.sections); // Expecting response.data.sections to be an array
       setLoading(false);
-  
-
     } catch (error) {
-      // toast({
-      //   title: "Error fetching Header Section data",
-      //   status: "error",
-      //   duration: 2000,
-      //   isClosable: true,
-      // });
-      // console.log(error,"nnnnnnnn")
-      
+      console.error("Error fetching Header Section data", error);
       setLoading(false);
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>; // Loading state
+  }
 
   return (
-    <div className="text-white lg:p-32 md:p-20 sm:p-10 flex flex-col lg:flex-row items-center lg:justify-between p-10">
-      {/* Text Section */}
-      {turnKeyData&&(
-  <div className="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-left flex flex-col justify-center items-center lg:items-start">
-  <h1 className="text-[31px] sm:text-[48px] lg:text-[64px] font-bold leading-tight">
-  {turnKeyData?.title}
-  </h1>
-  <p className="text-[17px] sm:text-[20px] mt-4 leading-relaxed font-light text-center lg:text-left lg:leading-normal lg:mr-2 px-4">
-{turnKeyData?.description}
-  </p>
-</div>
-      )}
-    
-
- {turnKeyData&&(
-       <div className="lg:w-1/2 flex justify-center lg:justify-end">
-       <img
-         src={turnKeyData?.image} // replace this with your actual image path
-         alt="Turnkey Solution Graphic"
-         className="w-[90%] sm:w-[80%] lg:w-[75%] h-auto object-contain"
-       />
-     </div>
- )}
-    </div>
+    <div className="text-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 mt-20 space-y-10">
+    {turnKeyData.map((item, index) => (
+      <div
+        key={index}
+        className={`flex flex-col lg:flex-row items-center ${
+          index % 2 === 0 ? "lg:flex-row lg:px-[120px]" : "lg:flex-row-reverse"
+        } w-full`}
+      >
+        {/* Title and Description Section */}
+        <div className="lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left mb-6 lg:mb-0 px-4">
+          <h1 className="text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px] font-bold leading-tight">
+            {item.title}
+          </h1>
+          <p className="text-[14px] sm:text-[17px] md:text-[20px] mt-4 leading-relaxed font-light lg:mr-2">
+            {item.description}
+          </p>
+        </div>
+  
+        {/* Image Section */}
+        <div className="lg:w-1/2 flex justify-center px-4">
+          <img
+            src={item.image}
+            alt={`${item.title} Graphic`}
+            className="w-[90%] sm:w-[80%] lg:w-[75%] h-auto object-contain"
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+  
   );
 };
 
