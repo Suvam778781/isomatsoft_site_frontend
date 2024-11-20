@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { sendPostRequest } from "../api/api";
 
 export const ContactUs = () => {
+  const [name,setName]=useState("")
   const [emailOrPhone, setEmailOrPhone] = useState("");
   const [budget, setBudget] = useState("");
   const [info, setInfo] = useState("");
@@ -39,6 +40,7 @@ export const ContactUs = () => {
     }
 
     const payload = {
+      name,
       email: emailOrPhone,
       phone,
       budget,
@@ -96,6 +98,14 @@ export const ContactUs = () => {
             className="flex flex-col gap-4 md:gap-6 w-full"
             onSubmit={handleSubmit}
           >
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full px-4 py-2 bg-transparent border-b border-[#FFFFFFB2] text-white focus:outline-none"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
             <input
               type="email"
               placeholder="Email"
