@@ -18,29 +18,29 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
                 </button>
 
                 {/* Modal Header */}
-                <h2 className="text-[24px] md:text-[48px] font-bold text-center text-white">
+                <h2 className="text-[20px] md:text-[28px] font-bold text-center text-white">
                     PRIVACY POLICY
                 </h2>
 
                 {/* Modal Content */}
                 <div className="flex flex-col gap-4 text-left w-full">
-                    <p className="text-white mb-4 md:mb-6 text-[16px] md:text-[22px] font-[300]">
+                    <p className="text-white mb-4 md:mb-6 text-[14px] md:text-[18px] font-[300]">
                         Your privacy is important to us. This Privacy Policy outlines how we handle your personal information and data.
                     </p>
-                    <div className= "flex flex-col gap-2 text-white text-[14px] md:text-[18px] font-[300] leading-relaxed overflow-y-auto max-h-[300px] px-2">
-                        <p className="">
+                    <div className="flex flex-col gap-1 text-white text-[13px] md:text-[15px] font-[300] leading-relaxed overflow-y-auto max-h-[300px] px-2">
+                        <p>
                             <strong>1. Data Collection:</strong> We collect your personal information when you interact with our services, including your email, phone number, and other details you share.
                         </p>
-                        <p className="">
+                        <p>
                             <strong>2. Use of Information:</strong> Your data is used solely to provide you with better services, respond to inquiries, and enhance your experience.
                         </p>
-                        <p className="">
+                        <p>
                             <strong>3. Data Security:</strong> We implement industry-standard measures to protect your information from unauthorized access, alteration, or disclosure.
                         </p>
-                        <p className="">
+                        <p>
                             <strong>4. Sharing of Information:</strong> We do not sell, trade, or share your personal data with third parties without your consent, except as required by law.
                         </p>
-                        <p className="">
+                        <p>
                             <strong>5. Your Rights:</strong> You can request access to the data we store about you or ask for corrections/deletions at any time.
                         </p>
                         <p>
@@ -50,7 +50,7 @@ const PrivacyPolicyModal = ({ isOpen, onClose }) => {
 
                     <button
                         onClick={onClose}
-                        className="w-full border-b border-[#FFFFFFB2] py-2 bg-[#FFFFFF33] bg-opacity-30 text-[#000000B2] text-[16px] md:text-[20px] font-[700] rounded-[16px] hover:bg-opacity-50 transition-all h-[100%] min-h-10 mt-10 mb-4"
+                        className=" w-full border-b border-[#FFFFFFB2] py-2 bg-[#FFFFFF33] bg-opacity-30 text-[#000000B2] text-[14px] md:text-[18px] font-[700] rounded-[16px] hover:bg-opacity-50 transition-all h-[100%] min-h-10 mt-4 mb-2"
                     >
                         Close
                     </button>

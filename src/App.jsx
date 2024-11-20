@@ -14,11 +14,12 @@ import Footer from './Page/Footer'
 import { ContactUs } from './Page/ContactUs'
 import ClientsCarousel from './Page/ClientsCarousel'
 
-
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
    
     <div className=''>
+       <Toaster position="top-right" reverseOrder={false} />
       <Navbar/>
       <CasinoPlatform/>
       <TurnkeySolution/>

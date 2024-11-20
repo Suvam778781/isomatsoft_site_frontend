@@ -14,7 +14,7 @@ const Footer = () => {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const [isPrivacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [isTermsModalOpen, setTermsModalOpen] = useState(false);
-  let companyLogo=localStorage.getItem("company-logo")
+  let companyLogo = localStorage.getItem("company-logo");
 
   const toggleContactModal = () => {
     setContactModalOpen((prev) => !prev);
@@ -60,7 +60,7 @@ const Footer = () => {
       setLoading(false);
     }
   };
-   console.log(footerData,"footer-data")
+  console.log(footerData, "footer-data");
   return (
     <footer className="flex max-h-[800px] flex-col justify-end text-white 400 mt-4">
       <div className="w-full">
@@ -84,15 +84,12 @@ const Footer = () => {
                     <img
                       src={social.icon}
                       alt="social icon"
-                      width="24"
-                      height="24"
+                      width="30"
+                      height="30"
                     />
                   </a>
                 ))}
               </div>
-
-           
-              
             </div>
             {/* Footer Links */}
             <div className="mt-2 flex flex-col items-center gap-5">
@@ -100,22 +97,45 @@ const Footer = () => {
                 {footerData?.rights}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-5 lg:gap-12">
-      {footerData?.links.map((item) => (
-        <button
-          key={item._id}
-          onClick={() => handleItemClick(item.name)}
-          className="text-xs font-medium leading-7 text-dark-grey-400 flex items-center gap-2"
-        >
-          <img src={item.icon} alt={`${item.name} icon`} className="w-4 h-4" />
-          {item.name}
-        </button>
-      ))}
+                {footerData?.links.map((item) => (
+                  <button
+                    key={item._id}
+                    onClick={() => handleItemClick(item.name)}
+                    className="text-xs border px-2 py-1 font-medium text-dark-grey-400  rounded-full  flex items-center gap-2"
+                  >
+                    <span className="flex justify-center items-center bg-slate-50 rounded-full p-1">
+                      <img
+                        src={item.icon}
+                        alt={`${item.name} icon`}
+                        className={` w-4 h-4  ${
+                          item.name === "Terms of Service" ? "p-[1.5px]" : ""
+                        }`}
+                      />
+                    </span>
+                    {item.name}
+                  </button>
+                ))}
 
-      {/* Conditionally render the Contact Us modal */}
-      {isContactModalOpen && <ContactModal isOpen={isContactModalOpen} onClose={toggleContactModal} />}
-      {isPrivacyModalOpen && <PrivacyPolicyModal isOpen={isPrivacyModalOpen} onClose={togglePrivacyModal} />}
-      {isTermsModalOpen && <TermsOfServiceModal isOpen={isTermsModalOpen} onClose={toggleTermsModal} />}
-    </div>
+                {/* Conditionally render the Contact Us modal */}
+                {isContactModalOpen && (
+                  <ContactModal
+                    isOpen={isContactModalOpen}
+                    onClose={toggleContactModal}
+                  />
+                )}
+                {isPrivacyModalOpen && (
+                  <PrivacyPolicyModal
+                    isOpen={isPrivacyModalOpen}
+                    onClose={togglePrivacyModal}
+                  />
+                )}
+                {isTermsModalOpen && (
+                  <TermsOfServiceModal
+                    isOpen={isTermsModalOpen}
+                    onClose={toggleTermsModal}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -57,15 +57,12 @@ const ClientsCarousel = () => {
         {carouselDatas?.map((client, index) => (
           <div
             key={index}
-            className={`flex  items-center justify-center w-[250px] py-5 rounded-[8px] hover:shadow-lg border transition duration-300 ease-in-out 
+            className={`flex  items-center cursor-pointer justify-center w-[250px] py-5 rounded-[8px] hover:shadow-lg border transition duration-300 ease-in-out 
             ${selectedClient === client.links.name ? 'border-[#AF1917]' : 'border-[#434343]'}`}
             onClick={() => handleCardClick(client.links.name)}
             style={{ 
               backgroundImage: "radial-gradient(circle, #090c20 0%, #2b2d4d 60%, #4e4f70 100%)" 
             }}
-            
-            
-
           >
             <img
               src={client.logo}
